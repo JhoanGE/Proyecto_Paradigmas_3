@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="502.0" prefWidth="734.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.poli.Proyecto_3.Controlador.FormControlador">
+   <children>
+      <SplitPane layoutX="-4.0" prefHeight="502.0" prefWidth="740.0">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="500.0" prefWidth="752.0">
+               <children>
+                  <Label layoutX="109.0" layoutY="6.0" text="Registro de Arboles" />
+                  <GridPane layoutX="35.0" layoutY="50.0" prefHeight="158.0" prefWidth="297.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="164.0" minWidth="10.0" prefWidth="113.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="276.0" minWidth="10.0" prefWidth="123.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="276.0" minWidth="0.0" prefWidth="7.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="276.0" minWidth="10.0" prefWidth="59.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints maxHeight="50.0" minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="32.0" minHeight="10.0" prefHeight="32.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Label prefHeight="17.0" prefWidth="104.0" text="Nombre del arbol:" />
+                        <TextField fx:id="idarbol" prefHeight="25.0" prefWidth="126.0" promptText="id" GridPane.columnIndex="1" />
+                        <Label text="Especie:" GridPane.rowIndex="1" />
+                        <TextField fx:id="Especie" promptText="Nombre especie" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <Label text="Ubicacion:" GridPane.rowIndex="2" />
+                        <TextField fx:id="UbicacionArbol" promptText="Punto Especifico" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <Label prefHeight="17.0" prefWidth="98.0" text=" Estado del Arbol" GridPane.rowIndex="3" />
+                        <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                           <children>
+                              <RadioButton fx:id="R1" mnemonicParsing="false" text="Bueno">
+                                 <toggleGroup>
+                                    <ToggleGroup fx:id="Estado" />
+                                 </toggleGroup>
+                              </RadioButton>
+                              <RadioButton fx:id="R2" mnemonicParsing="false" text="Malo" toggleGroup="$Estado" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </GridPane>
+                  <DatePicker fx:id="FechaPcker" layoutX="102.0" layoutY="225.0" promptText="Fecha Plantacion" />
+                  <GridPane layoutX="25.0" layoutY="282.0" prefHeight="178.0" prefWidth="305.0">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Button fx:id="Guardar" mnemonicParsing="false" onAction="#Create" prefHeight="25.0" prefWidth="104.0" text="Guardar" GridPane.columnIndex="1" />
+                        <Button fx:id="Eliminar" mnemonicParsing="false" onAction="#Delete" prefHeight="25.0" prefWidth="97.0" text="Eliminar" GridPane.rowIndex="1" />
+                        <Button fx:id="Actualizar" mnemonicParsing="false" onAction="#ActualizarArbol" prefHeight="25.0" prefWidth="94.0" text="Actualizar" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                        <Button fx:id="Buscar" mnemonicParsing="false" onAction="#BuscarArbol" prefHeight="25.0" prefWidth="97.0" text="Buscar" GridPane.rowIndex="2" />
+                        <Button fx:id="Mostrar" mnemonicParsing="false" onAction="#MostrarArbol" prefHeight="25.0" prefWidth="93.0" text="Mostrar" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                        <Button fx:id="Serializar" mnemonicParsing="false" onAction="#SerializarArbol" prefHeight="25.0" prefWidth="95.0" text="Serializar" GridPane.rowIndex="4" />
+                        <Button fx:id="Deserializar" mnemonicParsing="false" onAction="#DeserializarArbol" prefHeight="25.0" prefWidth="93.0" text="Deserializar" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+                     </children>
+                  </GridPane>
+                  <Button fx:id="Exit" layoutX="35.0" layoutY="11.0" mnemonicParsing="false" onAction="#Exit" text="Exit" />
+                  <TableView fx:id="TablaArbol" layoutX="345.0" prefHeight="502.0" prefWidth="731.0" AnchorPane.leftAnchor="345.0" AnchorPane.rightAnchor="-50.0">
+                    <columns>
+                      <TableColumn fx:id="colum1" prefWidth="75.0" text="Nombre" />
+                      <TableColumn fx:id="colum2" prefWidth="83.0" text="Especie" />
+                        <TableColumn fx:id="colum3" prefWidth="79.0" text="Ubicacion" />
+                        <TableColumn fx:id="colum4" prefWidth="72.0" text="Estado" />
+                        <TableColumn fx:id="colum5" prefWidth="87.0" text="Fecha" />
+                    </columns>
+                  </TableView>
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+   </children>
+</AnchorPane>
